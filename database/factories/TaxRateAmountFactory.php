@@ -6,9 +6,12 @@ use App\Models\TaxClass;
 use App\Models\TaxRate;
 use App\Models\TaxRateAmount;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TaxRateAmountFactory extends Factory
 {
+    use HasFactory;
+
     protected $model = TaxRateAmount::class;
 
     public function definition(): array

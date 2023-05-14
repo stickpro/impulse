@@ -17,4 +17,5 @@ class Price extends Model
         'compare_price',
         'tier',
     ];
+
 }
