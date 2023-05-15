@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class ProductOptionsFactory extends Factory
 {
-    private static $position = 1;
+    private static int $position = 1;
 
     protected $model = ProductOptions::class;
 
