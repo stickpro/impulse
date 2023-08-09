@@ -9,8 +9,12 @@ return new class extends Migration {
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('parent_transaction_id')->after('id')
+                ->nullable()
+                ->constrained('transactions');
             $table->foreignId('order_id')->constrained('orders');
             $table->boolean('success')->index();
+            $table->enum('type', ['refund', 'intent', 'capture'])->index()->default('capture');
             $table->boolean('refund')->default(0)->index();
             $table->string('driver');
             $table->decimal('amount', 10, 4)->index();
@@ -18,8 +22,9 @@ return new class extends Migration {
             $table->string('status');
             $table->string('notes')->nullable();
             $table->string('card_type', 25)->index();
-            $table->smallInteger('last_four');
+            $table->string('last_four', 4)->nullable();
             $table->json('meta')->nullable();
+            $table->dateTime('captured_at')->nullable()->index();
             $table->timestamps();
         });
     }

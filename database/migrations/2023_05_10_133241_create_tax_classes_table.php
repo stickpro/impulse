@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('tax_classes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('default')->index()->default(false);
             $table->timestamps();
         });
     }

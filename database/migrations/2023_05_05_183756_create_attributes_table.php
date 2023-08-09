@@ -20,6 +20,9 @@ return new class extends Migration {
             $table->string('default_value')->nullable();
             $table->json('configuration');
             $table->boolean('system');
+            $table->boolean('searchable')->default(true)->index();
+            $table->boolean('filterable')->default(false)->index();
+            $table->string('validation_rules')->nullable();
             $table->timestamps();
 
             $table->unique(['attribute_type', 'handle']);

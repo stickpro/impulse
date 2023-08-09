@@ -21,7 +21,11 @@ class Attribute extends Model
         'default_value',
         'configuration',
         'system',
+        'searchable',
+        'filterable',
+        'validation_rules',
     ];
+
 
     protected $casts = [
         'name'          => 'array',

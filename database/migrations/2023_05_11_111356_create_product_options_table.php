@@ -10,7 +10,8 @@ return new class extends Migration {
         Schema::create('product_options', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->json('name');
-            $table->string('handle')->unique();
+            $table->json('label')->nullable();
+            $table->string('handle')->unique()->nullable();
             $table->integer('position')->default(0)->index();
             $table->timestamps();
         });

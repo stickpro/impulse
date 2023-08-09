@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->string('last_name');
             $table->string('company_name')->nullable();
             $table->string('vat_no')->nullable();
+            $table->json('attribute_data')->nullable();
             $table->json('meta');
             $table->timestamps();
         });

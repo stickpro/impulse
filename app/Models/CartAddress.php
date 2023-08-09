@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use App\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Address extends BaseModel
+class CartAddress extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'customer_id',
+        'cart_id',
         'country_id',
         'title',
         'first_name',
@@ -25,12 +25,8 @@ class Address extends BaseModel
         'delivery_instructions',
         'contact_email',
         'contact_phone',
-        'meta',
-        'shipping_default',
-        'billing_default',
-    ];
-
-    protected $casts = [
-        'meta' => 'array',
+        'type',
+        'shipping_option',
+        'meta'
     ];
 }

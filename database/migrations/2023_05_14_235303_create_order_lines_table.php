@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('identifier')->index();
             $table->decimal('unit_price', 10, 4);
             $table->smallInteger('unit_quantity')->default(1)->unsigned()->index();
-            $table->smallInteger('quantity')->unsigned();
+            $table->unsignedInteger('quantity');
             $table->decimal('sub_total');
             $table->decimal('discount_total')->default(0)->unsigned();
             $table->json('tax_breakdown');

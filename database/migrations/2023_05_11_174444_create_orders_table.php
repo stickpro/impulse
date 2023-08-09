@@ -9,11 +9,17 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('customer_id')->nullable()->constrained('customers');
+            $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->foreignId('cart_id')->nullable()->constrained('carts')->nullOnDelete();
+            $table->boolean('new_customer')->default(false)->index();
             $table->string('status')->index();
             $table->string('reference')->nullable()->unique();
             $table->string('customer_reference')->nullable();
             $table->decimal('sub_total', 10, 4)->index();
+            $table->json('discount_breakdown')->after('sub_total');
             $table->decimal('discount_total', 10, 4)->index();
+            $table->json('shipping_breakdown')->nullable();
             $table->decimal('shipping_total', 10, 4)->index();
             $table->json('tax_breakdown');
             $table->decimal('tax_total', 10, 4)->index();
