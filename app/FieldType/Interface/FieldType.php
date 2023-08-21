@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Contracts\Field;
+namespace App\FieldType\Interface;
 
-/**
- *
- */
 interface FieldType
 {
     /**
@@ -12,9 +9,8 @@ interface FieldType
      */
     public function getValue(): mixed;
 
-
     /**
-     * @param  mixed  $value
+     * @param mixed $value
      * @return void
      */
     public function setValue(mixed $value): void;
